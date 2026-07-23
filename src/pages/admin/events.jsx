@@ -314,12 +314,12 @@ export default function Events() {
     try {
       let thumbnailUrl = formData.thumbnail;
       if (thumbnail_img) {
-        thumbnailUrl = await handleImageUpload(thumbnail_img);
+        thumbnailUrl = await handleImageUpload(thumbnail_img, `${formData.title}_${Date.now()}`);
       }
 
       const newGalleryUrls = [];
       for (const image of images) {
-        const url = await handleImageUpload(image);
+        const url = await handleImageUpload(image, `${formData.title}_${Date.now()}`);
         if (url) newGalleryUrls.push(url);
       }
 

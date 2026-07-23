@@ -10,12 +10,12 @@ import { toast } from 'sonner';
 
 const PAGE_SIZE = 12;
 
-const ROLES = ['Developer', 'Designer', 'Content Writer', 'Marketing', 'Operations', 'Co-founder', 'Other'];
+const ROLES = ['Technical member', 'Designer', 'Content Writer', 'Marketing', 'Operations', 'Co-founder', 'Community Manager','Other'];
 const STATUSES = ['Active', 'Alumni'];
 
 const emptyForm = {
   name: '',
-  role: 'Developer',
+  role: 'Community Manager',
   position: '',
   email: '',
   phone: '',
@@ -153,10 +153,20 @@ function MemberModal({ member, onClose, onSaved }) {
     e.preventDefault();
     if (!form.name.trim()) { toast.error('Name is required'); return; }
     setSaving(true);
+    const fileName = form.name
+  .trim()
+  .toLowerCase()
+  .replace(/\s+/g, "-")
+  .replace(/[^a-z0-9-]/g, "");
     try {
       let imageUrl = form.image || '';
       if (imageFile) {
-        const publicUrl = await uploadFile('connect_assets', imageFile, 'teams');
+       const publicUrl = await uploadFile(
+  "connect_assets",
+  imageFile,
+  "interns",
+  fileName
+);
         if (!publicUrl) throw new Error('Failed to upload image');
         imageUrl = publicUrl;
       }
