@@ -175,13 +175,13 @@ function EventForm({ onSuccess, editingEvent }) {
             // Upload thumbnail image to Cloudinary if a new one was selected
             let thumbnailUrl = formData.thumbnail;
             if (thumbnail_img) {
-                thumbnailUrl = await handleImageUpload(thumbnail_img, 'connect_assets/events', `${formData.title}_${Date.now()}`);
+                thumbnailUrl = await handleImageUpload(thumbnail_img,  `${formData.title}_${Date.now()}`);
             }
 
             // Upload new gallery images to Cloudinary
             const newGalleryUrls = [];
             for (const image of images) {
-                const url = await handleImageUpload(image, 'connect_assets/events', `${formData.title}_${Date.now()}`);
+                const url = await handleImageUpload(image, `${formData.title}_${Date.now()}`);
                 if (url) newGalleryUrls.push(url);
             }
 
