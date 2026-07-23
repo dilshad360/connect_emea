@@ -5,7 +5,7 @@ import {
   Search, ChevronDown, Loader2, Filter, Grid, List, Phone, ExternalLink,
   Info, Check, Sparkles
 } from 'lucide-react';
-import { supabase } from '../../config/supabase';
+import { supabase , deleteFile} from '../../config/supabase';
 import handleImageUpload from '../../components/uploadimage';
 import { resolveAsset } from '../../utils/resolveAsset';
 import {
