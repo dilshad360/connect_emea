@@ -4,7 +4,7 @@ import {
   Mail, Phone, MapPin, Linkedin, Github, Instagram,
   X, Check, Upload, ChevronDown, Loader2, Users, Crown, GraduationCap
 } from 'lucide-react';
-import { supabase, uploadFile } from '@/config/supabase';
+import { supabase, uploadFile , deleteFile } from '@/config/supabase';
 import { resolveAsset } from '@/utils/resolveAsset';
 import { toast } from 'sonner';
 
