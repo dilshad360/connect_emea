@@ -175,7 +175,7 @@ function EventForm({ onSuccess, editingEvent }) {
             // Upload thumbnail image to Cloudinary if a new one was selected
             let thumbnailUrl = formData.thumbnail;
             if (thumbnail_img) {
-                thumbnailUrl = await handleImageUpload(thumbnail_img);
+                thumbnailUrl = await (thumbnail_img);
             }
 
             // Upload new gallery images to Cloudinary
